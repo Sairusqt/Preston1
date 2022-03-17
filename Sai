@@ -1,0 +1,44 @@
+workspace.__THINGS.__REMOTES.MAIN:FireServer("b", "bank deposit")
+workspace.__THINGS.__REMOTES.MAIN:FireServer("b", "bank withdraw")
+local function Bank(id)
+   local self = {}
+   function self:withdraw(pets, gems)
+local A_1 = 
+{
+    [1] = id, 
+    [2] = 
+{
+}, 
+    [3] = gems
+}
+        local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["bank withdraw"]
+        Event:InvokeServer(A_1)
+   end
+   function self:deposit(pets, gems)
+       local A_1 = 
+{
+    [1] = id, 
+    [2] = 
+{
+}, 
+    [3] = gems
+}
+        local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["bank deposit"]
+        Event:InvokeServer(A_1)
+   end
+   return self
+end
+--//
+local bankid = "607549e2-e935-4203-8816-024a105d06a6"--bank
+for i = 1, 100000,3 do
+   Bank(bankid):withdraw({}, 3)
+   print('Crushing Successfull')
+   print('Crushing Count' ..i)
+   print('Crushing Started')
+    task.wait()
+ Bank(bankid):deposit({}, 3)
+   print('Crushing Successfull')
+   print('Crushing Count' ..i)
+   print('Crushing Started')
+    task.wait()
+end
